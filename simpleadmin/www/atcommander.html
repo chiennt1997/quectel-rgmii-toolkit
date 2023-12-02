@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RM520N-GL AT Commands</title>
+    <title>RM520N-GL AT Command List</title>
 
     <script src="/js/alpinejs.min.js" defer></script>
     <link rel="stylesheet" href="/css/bulma.css">
@@ -33,7 +33,7 @@
                         Connection Info
                     </a>
                     <a class="navbar-item" href="/atcommander.html">
-                        AT Commands
+                        AT Command List
                     </a>
                     <a class="navbar-item" href="/ttl.html">
                         TTL Changer
@@ -44,59 +44,6 @@
         </div>
     </nav>
     <!-- END NAV -->
-    <div class="container" x-data="atCommands()">
-        <div class="columns">
-            <div class="column is-12">
-                <div class="columns">
-                    <div class="column is-4">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    AT Command
-                                </p>
-                            </header>
-                            <div class="card-content">
-                                <div class="content">
-                                    <div class="field">
-                                        <label class="label">AT Command</label>
-                                        <div class="control">
-                                            <input class="input" type="text" placeholder="ATI" x-model="atcmd">
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <p class="control">
-                                            <button class="button is-success" @click="sendAtCommand()">
-                                                Send AT Command
-                                            </button>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column is-8">
-                        <div class="card">
-                            <header class="card-header">
-                                <p class="card-header-title">
-                                    ATI Response
-                                </p>
-                            </header>
-                            <div class="card-content">
-                                <div class="content">
-                                    <textarea class="textarea" placeholder="ATI Responses Will Appear Here" rows="10"
-                                        x-text="atCommandResponse"></textarea>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-
-    <!-- START Useful Commands Section -->
     <div class="container">
         <div class="columns">
             <div class="column is-12">
@@ -154,28 +101,6 @@
     </div>
     <!-- END Useful Commands Section -->
 
-    <script>
-
-        function atCommands() {
-            return {
-                isLoading: false,
-                atcmd: null,
-                atCommandResponse: null,
-                sendAtCommand() {
-                    fetch('/cgi-bin/get_atcommand?' + new URLSearchParams({
-                        atcmd: this.atcmd,
-                    }))
-                        .then((res) => {
-                            return res.text();
-                        })
-                        .then((data) => {
-                            this.atCommandResponse = data;
-                            this.isLoading = false;
-                        })
-                },
-            }
-        }
-    </script>
 </body>
 
 </html>
