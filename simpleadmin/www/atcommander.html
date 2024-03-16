@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>RM5xxx AT Command List</title>
+    <title>Modem AT Commands</title>
 
     <script src="/js/alpinejs.min.js" defer></script>
     <link rel="stylesheet" href="/css/bulma.css">
@@ -19,7 +19,7 @@
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item brand-text" href="/">
-                    Quectel RM5xxx Simple Admin
+                    Modem Simple Admin
                 </a>
                 <a role="button" class="navbar-burger burger" @click="isOpen = !isOpen">
                     <span aria-hidden="true"></span>
@@ -33,7 +33,7 @@
                         Connection Info
                     </a>
                     <a class="navbar-item" href="/atcommander.html">
-                        AT Command List
+                        AT Commands
                     </a>
                     <a class="navbar-item" href="/ttl.html">
                         TTL Changer
@@ -44,6 +44,9 @@
         </div>
     </nav>
     <!-- END NAV -->
+    
+
+    <!-- START Useful Commands Section -->
     <div class="container">
         <div class="columns">
             <div class="column is-12">
@@ -58,7 +61,7 @@
                             <!-- Add your useful commands content here -->
                             <p>Here are some useful commands:</p>
                             <ul>
-                                <li><a href="https://github.com/iamromulan/RM520N-GL#at-commands" target="_blank">See more AT commands on GitHub</a></li>
+                                <li>See https://github.com/iamromulan/RM520N-GL#at-commands for more </li>
 								<li>AT+CFUN=1,1 (reboot)</li>
                                 <li>AT+QMAPWAC? (get current status of auto connect, 0=disabled 1=enabled)</li>
                                 <li>AT+QMAPWAC=1 (enable auto connect internet for ethernet)</li>
@@ -90,8 +93,6 @@
 								<li>AT+QMAP="DHCPV4DNS","disable" (disable the onboard DNS proxy; recommended for IPPT)</li>
 								<li>AT+QMAP="MPDN_rule",0,1,0,1,1,"FF:FF:FF:FF:FF:FF" (Turn on IP Passthrough for Ethernet)</li>
 								<li>AT+QMAP="MPDN_rule",0 (turn off IPPT/clear MPDN rule 0; Remember to run AT+QMAPWAC=1 and reboot after)</li>
-								<li>AT+GSN (Show current IMEI)</li>
-								
                             </ul>
                         </div>
                     </div>
@@ -100,7 +101,6 @@
         </div>
     </div>
     <!-- END Useful Commands Section -->
-
 </body>
 
 </html>
